@@ -67,14 +67,6 @@ button:hover {
     background-color: #34495e;
 }
 
-#send-to-mistral-btn {
-    background-color: #4285F4;
-}
-
-#send-to-mistral-btn:hover {
-    background-color: #3367D6;
-}
-
 .result {
     margin-top: 20px;
     padding: 15px;
