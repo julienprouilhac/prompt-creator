@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Prompt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Générateur de Prompt Structuré</h1>
+
+    <div class="container">
+        <!-- Rôle -->
+        <div class="section">
+            <h2>1. Rôle</h2>
+            <select id="role">
+                <option value="">-- Sélectionner un rôle --</option>
+                <option value="Chef(fe) de projet">Chef(fe) de projet</option>
+                <option value="Commercial(e)">Commercial(e)</option>
+                <option value="Agent administratif">Agent administratif</option>
+                <option value="Responsable marketing">Responsable marketing</option>
+                <option value="Consultant(e)">Consultant(e)</option>
+                <option value="DRH">DRH</option>
+                <option value="Dirigeant(e)">Dirigeant(e)</option>
+                <option value="Expert(e) en...">Expert(e) en...</option>
+                <option value="Juriste">Juriste</option>
+                <option value="Autre">Autre</option>
+            </select>
+            <input type="text" id="role-custom" placeholder="Préciser si 'Autre'" style="display: none;">
+        </div>
+
+        <!-- Contexte -->
+        <div class="section">
+            <h2>2. Contexte</h2>
+            <select id="contexte">
+                <option value="">-- Sélectionner un contexte --</option>
+                <option value="Réunion">Réunion</option>
+                <option value="Colloque">Colloque</option>
+                <option value="Atelier">Atelier</option>
+                <option value="Étude de cas">Étude de cas</option>
+                <option value="Veille juridique">Veille juridique</option>
+                <option value="Scénario">Scénario</option>
+                <option value="Autre">Autre</option>
+            </select>
+            <input type="text" id="contexte-custom" placeholder="Préciser si 'Autre'" style="display: none;">
+        </div>
+
+        <!-- Objectif -->
+        <div class="section">
+            <h2>3. Objectif</h2>
+            <select id="objectif">
+                <option value="">-- Sélectionner un objectif --</option>
+                <option value="Rechercher">Rechercher</option>
+                <option value="Créer">Créer</option>
+                <option value="Clarifier">Clarifier</option>
+                <option value="Résumer">Résumer</option>
+                <option value="Organiser">Organiser</option>
+                <option value="Lister">Lister</option>
+                <option value="Former">Former</option>
+                <option value="Élaborer">Élaborer</option>
+                <option value="Évaluer les avantages et les inconvénients">Évaluer les avantages et les inconvénients</option>
+                <option value="Autre">Autre</option>
+            </select>
+            <input type="text" id="objectif-custom" placeholder="Préciser si 'Autre'" style="display: none;">
+        </div>
+
+        <!-- Tâches -->
+        <div class="section">
+            <h2>4. Tâches (verbes d'action)</h2>
+            <select id="taches" multiple>
+                <option value="Expliquer">Expliquer</option>
+                <option value="Résumer">Résumer</option>
+                <option value="Écrire">Écrire</option>
+                <option value="Améliorer">Améliorer</option>
+                <option value="Trouver">Trouver</option>
+                <option value="Lister">Lister</option>
+                <option value="Faire un tableau">Faire un tableau</option>
+                <option value="Traduire">Traduire</option>
+                <option value="Analyser">Analyser</option>
+            </select>
+        </div>
+
+        <!-- Précisions -->
+        <div class="section">
+            <h2>5. Précisions (cibles, ton, style, etc.)</h2>
+            <select id="precisions" multiple>
+                <option value="Créatif / conventionnel">Créatif / conventionnel</option>
+                <option value="Professionnel / informel">Professionnel / informel</option>
+                <option value="Responsable marketing, Direction, ensemble des salariés">Responsable marketing, Direction, ensemble des salariés</option>
+                <option value="Experts / grand public">Experts / grand public</option>
+                <option value="Accessible à tous">Accessible à tous</option>
+                <option value="Cordial / neutre">Cordial / neutre</option>
+            </select>
+        </div>
+
+        <!-- Livrable et format -->
+        <div class="section">
+            <h2>6. Livrable et format</h2>
+            <select id="livrable" multiple>
+                <option value="Tableau">Tableau</option>
+                <option value="Liste">Liste</option>
+                <option value="Mindmap">Mindmap</option>
+                <option value="Plan (écrits professionnels, présentation PPT, etc.)">Plan (écrits professionnels, présentation PPT, etc.)</option>
+                <option value="Résumé">Résumé</option>
+                <option value="Interview">Interview</option>
+                <option value="Processus">Processus</option>
+                <option value="Email">Email</option>
+                <option value="Discours">Discours</option>
+                <option value="Post pour LinkedIn, Facebook...">Post pour LinkedIn, Facebook...</option>
+            </select>
+        </div>
+
+        <!-- Bouton de génération -->
+        <button id="generate-btn">Générer le Prompt</button>
+
+        <!-- Résultat -->
+        <div class="result">
+            <h2>Prompt Généré</h2>
+            <textarea id="prompt-result" readonly></textarea>
+            <button id="copy-btn">Copier</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
