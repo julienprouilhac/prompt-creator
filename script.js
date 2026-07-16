@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const roleCharCount = document.getElementById('role-char-count');
 
     roleSelect.addEventListener('change', function() {
-        if (this.value === 'Expert en') {
+        if (this.value === 'expert en') {
             roleCustom.style.display = 'block';
             roleCharCount.parentElement.style.display = 'block';
         } else {
@@ -30,13 +30,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const contexteSelect = document.getElementById('contexte');
     const contexteCustom = document.getElementById('contexte-custom');
     contexteSelect.addEventListener('change', function() {
-        contexteCustom.style.display = (this.value === 'Autre') ? 'block' : 'none';
+        contexteCustom.style.display = (this.value === 'autre') ? 'block' : 'none';
     });
 
     const objectifSelect = document.getElementById('objectif');
     const objectifCustom = document.getElementById('objectif-custom');
     objectifSelect.addEventListener('change', function() {
-        objectifCustom.style.display = (this.value === 'Autre') ? 'block' : 'none';
+        objectifCustom.style.display = (this.value === 'autre') ? 'block' : 'none';
     });
 
     // Compteur pour "Détails supplémentaires"
@@ -88,16 +88,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Génération du prompt
     document.getElementById('generate-btn').addEventListener('click', function() {
-        const role = roleSelect.value === 'Expert en' ? `${roleSelect.value} ${roleCustom.value}` : roleSelect.value;
-        const contexte = contexteSelect.value === 'Autre' ? contexteCustom.value : contexteSelect.value;
-        const objectif = objectifSelect.value === 'Autre' ? objectifCustom.value : objectifSelect.value;
+        const role = roleSelect.value === 'expert en' ? `${roleSelect.value} ${roleCustom.value}` : roleSelect.value;
+        const contexte = contexteSelect.value === 'autre' ? contexteCustom.value : contexteSelect.value;
+        let objectif = objectifSelect.value === 'autre' ? objectifCustom.value : objectifSelect.value;
+
+        // Supprimer les parenthèses après "résumer"
+        objectif = objectif.replace(/\(.*\)/, '').trim();
 
         const taches = Array.from(document.getElementById('taches').selectedOptions)
             .map(option => option.value)
             .join(', ');
 
         const tachesCustomValue = tachesCustom.value.trim();
-        const tachesFinal = tachesCustomValue ? `${taches}${taches ? ', ' : ''}${tachesCustomValue}` : taches;
+        const tachesFinal = tachesCustomValue ? `${taches}${taches ? ', ' : ''}\n${tachesCustomValue}` : taches;
 
         const precisions = Array.from(document.getElementById('precisions').selectedOptions)
             .map(option => option.value)
@@ -113,14 +116,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const objectifDetailsValue = objectifDetails.value.trim();
 
-        // Construction du prompt
-        let prompt = `Tu es un(e) **${role}**. `;
-        prompt += `Dans le cadre d'une **${contexte}**, `;
-        prompt += `ton objectif est de **${objectif}${objectifDetailsValue ? ` (${objectifDetailsValue})` : ''}**. `;
-        prompt += `Pour cela, tu dois : **${tachesFinal}**. `;
-        prompt += `Le ton doit être **${precisions}**. `;
-        prompt += `Le livrable attendu est un **${livrable}** au format **${format}**. `;
-        prompt += `Rédige une réponse adaptée.`;
+        // Construction du prompt sans ** et sans majuscules
+        let prompt = `tu es un(e) ${role}. `;
+        prompt += `dans le cadre d'une ${contexte}, `;
+        prompt += `ton objectif est de ${objectif}${objectifDetailsValue ? ` ${objectifDetailsValue}` : ''}. `;
+        prompt += `pour cela, tu dois : ${tachesFinal}. `;
+        prompt += `le ton doit être ${precisions}. `;
+        prompt += `le livrable attendu est un ${livrable} au format ${format}. `;
+        prompt += `rédige une réponse adaptée.`;
 
         document.getElementById('prompt-result').value = prompt;
     });
