@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Générateur de Prompt</title>
+    <title>Générateur de Prompt Structuré</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,17 +16,18 @@
             <select id="role">
                 <option value="">-- Sélectionner un rôle --</option>
                 <option value="Chef(fe) de projet">Chef(fe) de projet</option>
-                <option value="Commercial(e)">Commercial(e)</option>
-                <option value="Agent administratif">Agent administratif</option>
+                <option value="Conseiller opérationnel et technique">Conseiller opérationnel et technique</option>
+                <option value="Acheteur">Acheteur</option>
+                <option value="PMO">PMO</option>
                 <option value="Responsable marketing">Responsable marketing</option>
-                <option value="Consultant(e)">Consultant(e)</option>
                 <option value="DRH">DRH</option>
-                <option value="Dirigeant(e)">Dirigeant(e)</option>
-                <option value="Expert(e) en...">Expert(e) en...</option>
                 <option value="Juriste">Juriste</option>
-                <option value="Autre">Autre</option>
+                <option value="Expert(e) en...">Expert(e) en...</option>
             </select>
-            <input type="text" id="role-custom" placeholder="Préciser si 'Autre'" style="display: none;">
+            <div class="custom-field">
+                <input type="text" id="role-custom" maxlength="60" placeholder="Préciser votre domaine d'expertise (ex: cybersécurité, logistique...)" style="display: none;">
+                <div class="char-counter"><span id="role-char-count">0</span>/60</div>
+            </div>
         </div>
 
         <!-- Contexte -->
@@ -35,7 +36,8 @@
             <select id="contexte">
                 <option value="">-- Sélectionner un contexte --</option>
                 <option value="Réunion">Réunion</option>
-                <option value="Colloque">Colloque</option>
+                <option value="Sourcing">Sourcing</option>
+                <option value="Étude technique">Étude technique</option>
                 <option value="Atelier">Atelier</option>
                 <option value="Étude de cas">Étude de cas</option>
                 <option value="Veille juridique">Veille juridique</option>
@@ -62,6 +64,13 @@
                 <option value="Autre">Autre</option>
             </select>
             <input type="text" id="objectif-custom" placeholder="Préciser si 'Autre'" style="display: none;">
+
+            <!-- Détails supplémentaires -->
+            <div class="custom-field">
+                <h3>Détails supplémentaires (optionnel)</h3>
+                <textarea id="objectif-details" maxlength="250" placeholder="Ajoutez des précisions sur l'objectif..."></textarea>
+                <div class="char-counter"><span id="objectif-char-count">0</span>/250</div>
+            </div>
         </div>
 
         <!-- Tâches -->
@@ -78,6 +87,16 @@
                 <option value="Traduire">Traduire</option>
                 <option value="Analyser">Analyser</option>
             </select>
+
+            <!-- Tâches personnalisées -->
+            <div class="custom-field">
+                <h3>Tâches personnalisées (optionnel)</h3>
+                <textarea id="taches-custom" maxlength="250" placeholder="Ajoutez des tâches supplémentaires sous forme de liste :
+1 - ...
+2 - ...
+3 - ..."></textarea>
+                <div class="char-counter"><span id="taches-char-count">0</span>/250</div>
+            </div>
         </div>
 
         <!-- Précisions -->
@@ -116,7 +135,7 @@
         <!-- Résultat -->
         <div class="result">
             <h2>Prompt Généré</h2>
-            <textarea id="prompt-result" readonly></textarea>
+            <textarea id="prompt-result" readonly placeholder="Votre prompt apparaîtra ici..."></textarea>
             <div class="button-group">
                 <button id="copy-btn">Copier</button>
                 <button id="send-to-mistral-btn">Envoyer à Mistral</button>
