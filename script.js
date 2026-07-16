@@ -54,5 +54,22 @@ document.addEventListener('DOMContentLoaded', function() {
         promptResult.select();
         document.execCommand('copy');
         alert('Prompt copié dans le presse-papiers !');
+    
+        // Ajoute cette fonction à la fin de ton script.js
+    function encodePromptForURL(prompt) {
+    // Remplace les espaces par %20 et encode les caractères spéciaux
+    return encodeURIComponent(prompt);
+}
+
+document.getElementById('send-to-mistral-btn').addEventListener('click', function() {
+    const prompt = document.getElementById('prompt-result').value;
+    if (!prompt) {
+        alert("Génère d'abord un prompt !");
+        return;
+    }
+    const encodedPrompt = encodePromptForURL(prompt);
+    // Ouvre Mistral avec le prompt pré-rempli
+    window.open(`https://mistral.ai/chat?prompt=${encodedPrompt}`, '_blank');
+});
     });
 });
