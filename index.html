@@ -22,7 +22,7 @@
                 <option value="Responsable marketing">Responsable marketing</option>
                 <option value="DRH">DRH</option>
                 <option value="Juriste">Juriste</option>
-                <option value="Expert(e) en...">Expert(e) en...</option>
+                <option value="Expert en">Expert en</option>
             </select>
             <div class="custom-field">
                 <input type="text" id="role-custom" maxlength="60" placeholder="Préciser votre domaine d'expertise (ex: cybersécurité, logistique...)" style="display: none;">
@@ -112,20 +112,32 @@
             </select>
         </div>
 
-        <!-- Livrable et format -->
+        <!-- Livrable -->
         <div class="section">
-            <h2>6. Livrable et format</h2>
+            <h2>6. Livrable</h2>
             <select id="livrable" multiple>
                 <option value="Tableau">Tableau</option>
                 <option value="Liste">Liste</option>
                 <option value="Mindmap">Mindmap</option>
-                <option value="Plan (écrits professionnels, présentation PPT, etc.)">Plan (écrits professionnels, présentation PPT, etc.)</option>
-                <option value="Résumé">Résumé</option>
-                <option value="Interview">Interview</option>
-                <option value="Processus">Processus</option>
-                <option value="Email">Email</option>
+                <option value="Rapport technique">Rapport technique</option>
+                <option value="Mail">Mail</option>
                 <option value="Discours">Discours</option>
-                <option value="Post pour LinkedIn, Facebook...">Post pour LinkedIn, Facebook...</option>
+                <option value="Post">Post</option>
+                <option value="Processus">Processus</option>
+                <option value="Interview">Interview</option>
+            </select>
+        </div>
+
+        <!-- Format -->
+        <div class="section">
+            <h2>7. Format</h2>
+            <select id="format" multiple>
+                <option value="PowerPoint">PowerPoint</option>
+                <option value="Word">Word</option>
+                <option value="Excel">Excel</option>
+                <option value="Text">Text</option>
+                <option value="OneNote">OneNote</option>
+                <option value="Page HTML">Page HTML</option>
             </select>
         </div>
 
@@ -138,7 +150,6 @@
             <textarea id="prompt-result" readonly placeholder="Votre prompt apparaîtra ici..."></textarea>
             <div class="button-group">
                 <button id="copy-btn">Copier</button>
-                <button id="send-to-mistral-btn">Envoyer à Mistral</button>
             </div>
         </div>
     </div>
