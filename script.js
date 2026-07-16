@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const roleCharCount = document.getElementById('role-char-count');
 
     roleSelect.addEventListener('change', function() {
-        if (this.value === 'Expert(e) en...') {
+        if (this.value === 'Expert en') {
             roleCustom.style.display = 'block';
             roleCharCount.parentElement.style.display = 'block';
         } else {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Compteur pour "Expert(e) en..."
+    // Compteur pour "Expert en"
     roleCustom.addEventListener('input', function() {
         const currentLength = this.value.length;
         roleCharCount.textContent = currentLength;
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Génération du prompt
     document.getElementById('generate-btn').addEventListener('click', function() {
-        const role = roleSelect.value === 'Expert(e) en...' ? `${roleSelect.value} ${roleCustom.value}` : roleSelect.value;
+        const role = roleSelect.value === 'Expert en' ? `${roleSelect.value} ${roleCustom.value}` : roleSelect.value;
         const contexte = contexteSelect.value === 'Autre' ? contexteCustom.value : contexteSelect.value;
         const objectif = objectifSelect.value === 'Autre' ? objectifCustom.value : objectifSelect.value;
 
@@ -107,6 +107,10 @@ document.addEventListener('DOMContentLoaded', function() {
             .map(option => option.value)
             .join(', ');
 
+        const format = Array.from(document.getElementById('format').selectedOptions)
+            .map(option => option.value)
+            .join(', ');
+
         const objectifDetailsValue = objectifDetails.value.trim();
 
         // Construction du prompt
@@ -115,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
         prompt += `ton objectif est de **${objectif}${objectifDetailsValue ? ` (${objectifDetailsValue})` : ''}**. `;
         prompt += `Pour cela, tu dois : **${tachesFinal}**. `;
         prompt += `Le ton doit être **${precisions}**. `;
-        prompt += `Le livrable attendu est un **${livrable}**. `;
+        prompt += `Le livrable attendu est un **${livrable}** au format **${format}**. `;
         prompt += `Rédige une réponse adaptée.`;
 
         document.getElementById('prompt-result').value = prompt;
@@ -127,23 +131,5 @@ document.addEventListener('DOMContentLoaded', function() {
         promptResult.select();
         document.execCommand('copy');
         alert('Prompt copié dans le presse-papiers !');
-    });
-
-    // Envoyer à Mistral
-    document.getElementById('send-to-mistral-btn').addEventListener('click', function() {
-        const prompt = document.getElementById('prompt-result').value;
-        if (!prompt) {
-            alert("Génère d'abord un prompt !");
-            return;
-        }
-        navigator.clipboard.writeText(prompt)
-            .then(() => {
-                window.open('https://mistral.ai/chat', '_blank');
-                alert("Le prompt a été copié ! Colle-le directement dans Mistral AI.");
-            })
-            .catch(err => {
-                console.error("Erreur lors de la copie : ", err);
-                alert("Erreur lors de la copie. Copie manuellement le prompt et ouvre Mistral AI.");
-            });
     });
 });
