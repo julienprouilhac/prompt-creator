@@ -15,14 +15,14 @@
             <h2>1. Rôle</h2>
             <select id="role">
                 <option value="">-- Sélectionner un rôle --</option>
-                <option value="Chef(fe) de projet">Chef(fe) de projet</option>
-                <option value="Conseiller opérationnel et technique">Conseiller opérationnel et technique</option>
-                <option value="Acheteur">Acheteur</option>
+                <option value="chef(fe) de projet">chef(fe) de projet</option>
+                <option value="conseiller opérationnel et technique">conseiller opérationnel et technique</option>
+                <option value="acheteur">acheteur</option>
                 <option value="PMO">PMO</option>
-                <option value="Responsable marketing">Responsable marketing</option>
+                <option value="responsable marketing">responsable marketing</option>
                 <option value="DRH">DRH</option>
-                <option value="Juriste">Juriste</option>
-                <option value="Expert en">Expert en</option>
+                <option value="juriste">juriste</option>
+                <option value="expert en">expert en</option>
             </select>
             <div class="custom-field">
                 <input type="text" id="role-custom" maxlength="60" placeholder="Préciser votre domaine d'expertise (ex: cybersécurité, logistique...)" style="display: none;">
@@ -35,16 +35,16 @@
             <h2>2. Contexte</h2>
             <select id="contexte">
                 <option value="">-- Sélectionner un contexte --</option>
-                <option value="Réunion">Réunion</option>
-                <option value="Sourcing">Sourcing</option>
-                <option value="Étude technique">Étude technique</option>
-                <option value="Atelier">Atelier</option>
-                <option value="Étude de cas">Étude de cas</option>
-                <option value="Veille juridique">Veille juridique</option>
-                <option value="Scénario">Scénario</option>
-                <option value="Autre">Autre</option>
+                <option value="réunion">réunion</option>
+                <option value="sourcing">sourcing</option>
+                <option value="étude technique">étude technique</option>
+                <option value="atelier">atelier</option>
+                <option value="étude de cas">étude de cas</option>
+                <option value="veille juridique">veille juridique</option>
+                <option value="scénario">scénario</option>
+                <option value="autre">autre</option>
             </select>
-            <input type="text" id="contexte-custom" placeholder="Préciser si 'Autre'" style="display: none;">
+            <input type="text" id="contexte-custom" placeholder="Préciser si 'autre'" style="display: none;">
         </div>
 
         <!-- Objectif -->
@@ -52,22 +52,22 @@
             <h2>3. Objectif</h2>
             <select id="objectif">
                 <option value="">-- Sélectionner un objectif --</option>
-                <option value="Rechercher">Rechercher</option>
-                <option value="Créer">Créer</option>
-                <option value="Clarifier">Clarifier</option>
-                <option value="Résumer">Résumer</option>
-                <option value="Organiser">Organiser</option>
-                <option value="Lister">Lister</option>
-                <option value="Former">Former</option>
-                <option value="Élaborer">Élaborer</option>
-                <option value="Évaluer les avantages et les inconvénients">Évaluer les avantages et les inconvénients</option>
-                <option value="Autre">Autre</option>
+                <option value="rechercher">rechercher</option>
+                <option value="créer">créer</option>
+                <option value="clarifier">clarifier</option>
+                <option value="résumer">résumer</option>
+                <option value="organiser">organiser</option>
+                <option value="lister">lister</option>
+                <option value="former">former</option>
+                <option value="élaborer">élaborer</option>
+                <option value="évaluer les avantages et les inconvénients">évaluer les avantages et les inconvénients</option>
+                <option value="autre">autre</option>
             </select>
-            <input type="text" id="objectif-custom" placeholder="Préciser si 'Autre'" style="display: none;">
+            <input type="text" id="objectif-custom" placeholder="Préciser si 'autre'" style="display: none;">
 
             <!-- Détails supplémentaires -->
             <div class="custom-field">
-                <h3>Détails supplémentaires (optionnel)</h3>
+                <h3>détails supplémentaires (optionnel)</h3>
                 <textarea id="objectif-details" maxlength="250" placeholder="Ajoutez des précisions sur l'objectif..."></textarea>
                 <div class="char-counter"><span id="objectif-char-count">0</span>/250</div>
             </div>
@@ -75,78 +75,78 @@
 
         <!-- Tâches -->
         <div class="section">
-            <h2>4. Tâches (verbes d'action)</h2>
+            <h2>4. tâches (verbes d'action)</h2>
             <select id="taches" multiple>
-                <option value="Expliquer">Expliquer</option>
-                <option value="Résumer">Résumer</option>
-                <option value="Écrire">Écrire</option>
-                <option value="Améliorer">Améliorer</option>
-                <option value="Trouver">Trouver</option>
-                <option value="Lister">Lister</option>
-                <option value="Faire un tableau">Faire un tableau</option>
-                <option value="Traduire">Traduire</option>
-                <option value="Analyser">Analyser</option>
+                <option value="expliquer">expliquer</option>
+                <option value="résumer">résumer</option>
+                <option value="écrire">écrire</option>
+                <option value="améliorer">améliorer</option>
+                <option value="trouver">trouver</option>
+                <option value="lister">lister</option>
+                <option value="faire un tableau">faire un tableau</option>
+                <option value="traduire">traduire</option>
+                <option value="analyser">analyser</option>
             </select>
 
             <!-- Tâches personnalisées -->
             <div class="custom-field">
-                <h3>Tâches personnalisées (optionnel)</h3>
+                <h3>tâches personnalisées (optionnel)</h3>
                 <textarea id="taches-custom" maxlength="250" placeholder="Ajoutez des tâches supplémentaires sous forme de liste :
-1 - ...
-2 - ...
-3 - ..."></textarea>
+1 -
+2 -
+3 -"></textarea>
                 <div class="char-counter"><span id="taches-char-count">0</span>/250</div>
             </div>
         </div>
 
         <!-- Précisions -->
         <div class="section">
-            <h2>5. Précisions (cibles, ton, style, etc.)</h2>
+            <h2>5. précisions (cibles, ton, style, etc.)</h2>
             <select id="precisions" multiple>
-                <option value="Créatif / conventionnel">Créatif / conventionnel</option>
-                <option value="Professionnel / informel">Professionnel / informel</option>
-                <option value="Responsable marketing, Direction, ensemble des salariés">Responsable marketing, Direction, ensemble des salariés</option>
-                <option value="Experts / grand public">Experts / grand public</option>
-                <option value="Accessible à tous">Accessible à tous</option>
-                <option value="Cordial / neutre">Cordial / neutre</option>
+                <option value="créatif / conventionnel">créatif / conventionnel</option>
+                <option value="professionnel / informel">professionnel / informel</option>
+                <option value="responsable marketing, direction, ensemble des salariés">responsable marketing, direction, ensemble des salariés</option>
+                <option value="experts / grand public">experts / grand public</option>
+                <option value="accessible à tous">accessible à tous</option>
+                <option value="cordial / neutre">cordial / neutre</option>
             </select>
         </div>
 
         <!-- Livrable -->
         <div class="section">
-            <h2>6. Livrable</h2>
+            <h2>6. livrable</h2>
             <select id="livrable" multiple>
-                <option value="Tableau">Tableau</option>
-                <option value="Liste">Liste</option>
-                <option value="Mindmap">Mindmap</option>
-                <option value="Rapport technique">Rapport technique</option>
-                <option value="Mail">Mail</option>
-                <option value="Discours">Discours</option>
-                <option value="Post">Post</option>
-                <option value="Processus">Processus</option>
-                <option value="Interview">Interview</option>
+                <option value="tableau">tableau</option>
+                <option value="liste">liste</option>
+                <option value="mindmap">mindmap</option>
+                <option value="rapport technique">rapport technique</option>
+                <option value="mail">mail</option>
+                <option value="discours">discours</option>
+                <option value="post">post</option>
+                <option value="processus">processus</option>
+                <option value="interview">interview</option>
             </select>
         </div>
 
         <!-- Format -->
         <div class="section">
-            <h2>7. Format</h2>
+            <h2>7. format</h2>
             <select id="format" multiple>
-                <option value="PowerPoint">PowerPoint</option>
-                <option value="Word">Word</option>
-                <option value="Excel">Excel</option>
-                <option value="Text">Text</option>
-                <option value="OneNote">OneNote</option>
-                <option value="Page HTML">Page HTML</option>
+                <option value="powerpoint">powerpoint</option>
+                <option value="word">word</option>
+                <option value="excel">excel</option>
+                <option value="text">text</option>
+                <option value="onenote">onenote</option>
+                <option value="page html">page html</option>
             </select>
         </div>
 
         <!-- Boutons -->
-        <button id="generate-btn">Générer le Prompt</button>
+        <button id="generate-btn">Générer le prompt</button>
 
         <!-- Résultat -->
         <div class="result">
-            <h2>Prompt Généré</h2>
+            <h2>Prompt généré</h2>
             <textarea id="prompt-result" readonly placeholder="Votre prompt apparaîtra ici..."></textarea>
             <div class="button-group">
                 <button id="copy-btn">Copier</button>
