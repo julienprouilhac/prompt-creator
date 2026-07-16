@@ -7,12 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Générateur de Prompt Structuré</h1>
+    <div class="header">
+        <h1 id="title">Générateur de Prompt Structuré</h1>
+        <div class="language-selector">
+            <label for="language" id="language-label">Langue:</label>
+            <select id="language">
+                <option value="fr">Français</option>
+                <option value="en">English</option>
+                <option value="ar">العربية</option>
+            </select>
+        </div>
+    </div>
 
     <div class="container">
         <!-- Rôle -->
         <div class="section">
-            <h2>1. Rôle</h2>
+            <h2 id="role-title">1. Rôle</h2>
             <select id="role">
                 <option value="">-- Sélectionner un rôle --</option>
                 <option value="chef(fe) de projet">chef(fe) de projet</option>
@@ -32,7 +42,7 @@
 
         <!-- Contexte -->
         <div class="section">
-            <h2>2. Contexte</h2>
+            <h2 id="contexte-title">2. Contexte</h2>
             <select id="contexte">
                 <option value="">-- Sélectionner un contexte --</option>
                 <option value="réunion">réunion</option>
@@ -49,7 +59,7 @@
 
         <!-- Objectif -->
         <div class="section">
-            <h2>3. Objectif</h2>
+            <h2 id="objectif-title">3. Objectif</h2>
             <select id="objectif">
                 <option value="">-- Sélectionner un objectif --</option>
                 <option value="rechercher">rechercher</option>
@@ -67,7 +77,7 @@
 
             <!-- Détails supplémentaires -->
             <div class="custom-field">
-                <h3>détails supplémentaires (optionnel)</h3>
+                <h3 id="details-title">Détails supplémentaires (optionnel)</h3>
                 <textarea id="objectif-details" maxlength="250" placeholder="Ajoutez des précisions sur l'objectif..."></textarea>
                 <div class="char-counter"><span id="objectif-char-count">0</span>/250</div>
             </div>
@@ -75,7 +85,7 @@
 
         <!-- Tâches -->
         <div class="section">
-            <h2>4. tâches (verbes d'action)</h2>
+            <h2 id="taches-title">4. Tâches</h2>
             <select id="taches" multiple>
                 <option value="expliquer">expliquer</option>
                 <option value="résumer">résumer</option>
@@ -90,7 +100,7 @@
 
             <!-- Tâches personnalisées -->
             <div class="custom-field">
-                <h3>tâches personnalisées (optionnel)</h3>
+                <h3 id="custom-taches-title">Tâches personnalisées (optionnel)</h3>
                 <textarea id="taches-custom" maxlength="250" placeholder="Ajoutez des tâches supplémentaires sous forme de liste :
 1 -
 2 -
@@ -101,7 +111,7 @@
 
         <!-- Précisions -->
         <div class="section">
-            <h2>5. précisions (cibles, ton, style, etc.)</h2>
+            <h2 id="precisions-title">5. Précisions</h2>
             <select id="precisions" multiple>
                 <option value="créatif / conventionnel">créatif / conventionnel</option>
                 <option value="professionnel / informel">professionnel / informel</option>
@@ -114,7 +124,7 @@
 
         <!-- Livrable -->
         <div class="section">
-            <h2>6. livrable</h2>
+            <h2 id="livrable-title">6. Livrable</h2>
             <select id="livrable" multiple>
                 <option value="tableau">tableau</option>
                 <option value="liste">liste</option>
@@ -130,7 +140,7 @@
 
         <!-- Format -->
         <div class="section">
-            <h2>7. format</h2>
+            <h2 id="format-title">7. Format</h2>
             <select id="format" multiple>
                 <option value="powerpoint">powerpoint</option>
                 <option value="word">word</option>
@@ -146,7 +156,7 @@
 
         <!-- Résultat -->
         <div class="result">
-            <h2>Prompt généré</h2>
+            <h2 id="result-title">Prompt généré</h2>
             <textarea id="prompt-result" readonly placeholder="Votre prompt apparaîtra ici..."></textarea>
             <div class="button-group">
                 <button id="copy-btn">Copier</button>
