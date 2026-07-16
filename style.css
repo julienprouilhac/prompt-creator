@@ -76,3 +76,7 @@ button:hover {
     resize: none;
     font-family: monospace;
 }
+#send-to-mistral-btn {
+    background-color: #4285F4; /* Bleu Mistral */
+    margin-left: 10px;
+}
