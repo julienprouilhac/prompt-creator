@@ -83,6 +83,7 @@ button:hover {
     resize: none;
     font-family: monospace;
     margin-bottom: 10px;
+    white-space: pre-wrap; /* Conserve les sauts de ligne */
 }
 
 .button-group {
