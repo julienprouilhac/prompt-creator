@@ -9,7 +9,7 @@ const translations = {
         detailsTitle: "Détails supplémentaires (optionnel)",
         tachesTitle: "4. Tâches",
         customTachesTitle: "Tâches personnalisées (optionnel)",
-        precisionsTitle: "5. Précisions",
+        precisionsTitle: "5. Précisions (ton, style écrit de la réponse)",
         livrableTitle: "6. Livrable",
         formatTitle: "7. Format",
         resultTitle: "Prompt généré",
@@ -59,12 +59,14 @@ const translations = {
             "analyser": "analyser"
         },
         precisionsOptions: {
-            "créatif / conventionnel": "créatif / conventionnel",
-            "professionnel / informel": "professionnel / informel",
-            "responsable marketing, direction, ensemble des salariés": "responsable marketing, direction, ensemble des salariés",
-            "experts / grand public": "experts / grand public",
-            "accessible à tous": "accessible à tous",
-            "cordial / neutre": "cordial / neutre"
+            "créatif": "créatif",
+            "conventionnel": "conventionnel",
+            "professionnel": "professionnel",
+            "informel": "informel",
+            "expert": "expert",
+            "cordial": "cordial",
+            "neutre": "neutre",
+            "grand public": "grand public"
         },
         livrableOptions: {
             "tableau": "tableau",
@@ -81,7 +83,7 @@ const translations = {
             "powerpoint": "powerpoint",
             "word": "word",
             "excel": "excel",
-            "text": "text",
+            "texte": "texte",
             "onenote": "onenote",
             "page html": "page html"
         }
@@ -95,7 +97,7 @@ const translations = {
         detailsTitle: "Additional details (optional)",
         tachesTitle: "4. Tasks",
         customTachesTitle: "Custom tasks (optional)",
-        precisionsTitle: "5. Precisions",
+        precisionsTitle: "5. Precisions (tone, writing style of the response)",
         livrableTitle: "6. Deliverable",
         formatTitle: "7. Format",
         resultTitle: "Generated Prompt",
@@ -145,12 +147,14 @@ const translations = {
             "analyser": "analyze"
         },
         precisionsOptions: {
-            "créatif / conventionnel": "creative / conventional",
-            "professionnel / informel": "professional / informal",
-            "responsable marketing, direction, ensemble des salariés": "marketing manager, management, all employees",
-            "experts / grand public": "experts / general public",
-            "accessible à tous": "accessible to all",
-            "cordial / neutre": "friendly / neutral"
+            "créatif": "creative",
+            "conventionnel": "conventional",
+            "professionnel": "professional",
+            "informel": "informal",
+            "expert": "expert",
+            "cordial": "friendly",
+            "neutre": "neutral",
+            "grand public": "general public"
         },
         livrableOptions: {
             "tableau": "table",
@@ -167,7 +171,7 @@ const translations = {
             "powerpoint": "PowerPoint",
             "word": "Word",
             "excel": "Excel",
-            "text": "Text",
+            "texte": "Text",
             "onenote": "OneNote",
             "page html": "HTML page"
         }
@@ -181,7 +185,7 @@ const translations = {
         detailsTitle: "تفاصيل إضافية (اختياري)",
         tachesTitle: "4. المهام",
         customTachesTitle: "مهام مخصصة (اختياري)",
-        precisionsTitle: "5. التوضيحات",
+        precisionsTitle: "5. التوضيحات (نبرة، أسلوب كتابة الرد)",
         livrableTitle: "6. المخرجات",
         formatTitle: "7. التنسيق",
         resultTitle: "الطلب المولد",
@@ -231,12 +235,14 @@ const translations = {
             "analyser": "تحليل"
         },
         precisionsOptions: {
-            "créatif / conventionnel": "إبداعي / تقليدي",
-            "professionnel / informel": "مهني / غير رسمي",
-            "responsable marketing, direction, ensemble des salariés": "مسؤول التسويق، الإدارة، جميع الموظفون",
-            "experts / grand public": "خبراء / عامة الناس",
-            "accessible à tous": "متاح للجميع",
-            "cordial / neutre": "ودود / محايد"
+            "créatif": "إبداعي",
+            "conventionnel": "تقليدي",
+            "professionnel": "مهني",
+            "informel": "غير رسمي",
+            "expert": "خبير",
+            "cordial": "ودود",
+            "neutre": "محايد",
+            "grand public": "عام"
         },
         livrableOptions: {
             "tableau": "جدول",
@@ -253,7 +259,7 @@ const translations = {
             "powerpoint": "باوربوينت",
             "word": "وورد",
             "excel": "إكسيل",
-            "text": "نص",
+            "texte": "نص",
             "onenote": "ون نوت",
             "page html": "صفحة HTML"
         }
@@ -310,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fonction pour mettre à jour les options d'une liste déroulante
     function updateSelectOptions(selectId, options) {
         const select = document.getElementById(selectId);
-        const selectedValue = select.value;
+        const selectedValues = Array.from(select.selectedOptions).map(option => option.value);
         select.innerHTML = '';
 
         // Ajoute l'option par défaut
@@ -320,8 +326,6 @@ document.addEventListener('DOMContentLoaded', function() {
             select.add(new Option('-- Sélectionner un contexte --', ''));
         } else if (selectId === 'objectif') {
             select.add(new Option('-- Sélectionner un objectif --', ''));
-        } else {
-            // Pour les selects multiples, on ne met pas d'option par défaut
         }
 
         // Ajoute les options traduites
@@ -329,10 +333,13 @@ document.addEventListener('DOMContentLoaded', function() {
             select.add(new Option(text, value));
         }
 
-        // Rétablit la sélection si elle existe
-        if (selectedValue && Object.keys(options).includes(selectedValue)) {
-            select.value = selectedValue;
-        }
+        // Rétablit les sélections
+        selectedValues.forEach(value => {
+            if (Object.keys(options).includes(value)) {
+                const option = select.querySelector(`option[value="${value}"]`);
+                if (option) option.selected = true;
+            }
+        });
     }
 
     // Gestion des champs "Autre"
