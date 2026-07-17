@@ -93,6 +93,7 @@
         <div class="section">
             <h2 id="taches-title">4. Tâches</h2>
             <select id="taches" multiple>
+                <option value="">-- Sélectionner des tâches --</option>
                 <option value="expliquer">expliquer</option>
                 <option value="résumer">résumer</option>
                 <option value="écrire">écrire</option>
@@ -119,6 +120,7 @@
         <div class="section">
             <h2 id="precisions-title">5. Précisions (ton, style écrit de la réponse)</h2>
             <select id="precisions" multiple>
+                <option value="">-- Sélectionner des précisions --</option>
                 <option value="créatif">créatif</option>
                 <option value="conventionnel">conventionnel</option>
                 <option value="professionnel">professionnel</option>
@@ -134,6 +136,7 @@
         <div class="section">
             <h2 id="livrable-title">6. Livrable</h2>
             <select id="livrable" multiple>
+                <option value="">-- Sélectionner un livrable --</option>
                 <option value="tableau">tableau</option>
                 <option value="liste">liste</option>
                 <option value="mindmap">mindmap</option>
@@ -150,6 +153,7 @@
         <div class="section">
             <h2 id="format-title">7. Format</h2>
             <select id="format" multiple>
+                <option value="">-- Sélectionner un format --</option>
                 <option value="powerpoint">powerpoint</option>
                 <option value="word">word</option>
                 <option value="excel">excel</option>
@@ -165,7 +169,9 @@
         <!-- Résultat -->
         <div class="result">
             <h2 id="result-title">Prompt généré</h2>
-            <textarea id="prompt-result" readonly placeholder="Votre prompt apparaîtra ici..."></textarea>
+            <div class="prompt-container">
+                <textarea id="prompt-result" readonly placeholder="Votre prompt apparaîtra ici..."></textarea>
+            </div>
             <div class="button-group">
                 <button id="copy-btn">Copier</button>
             </div>
