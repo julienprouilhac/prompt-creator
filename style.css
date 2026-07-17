@@ -114,10 +114,17 @@ button:hover {
     padding: 15px;
     background: #f9f9f9;
     border-radius: 5px;
+    text-align: center;
+}
+
+.prompt-container {
+    display: flex;
+    justify-content: center;
 }
 
 #prompt-result {
     width: 100%;
+    max-width: 600px;
     height: 150px;
     padding: 10px;
     border: 1px solid #ddd;
@@ -127,10 +134,12 @@ button:hover {
     margin-bottom: 10px;
     white-space: pre-wrap;
     direction: ltr;
+    text-align: left;
 }
 
 .button-group {
     display: flex;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -195,5 +204,14 @@ body[lang="ar"] .section {
 body[lang="ar"] select,
 body[lang="ar"] input,
 body[lang="ar"] textarea {
+    direction: rtl;
+}
+
+body[lang="ar"] .prompt-container {
+    justify-content: center;
+}
+
+body[lang="ar"] #prompt-result {
+    text-align: right;
     direction: rtl;
 }
