@@ -8,7 +8,13 @@
 </head>
 <body>
     <div class="header">
-        <h1 id="title">Générateur de Prompt Structuré</h1>
+        <div class="logo-container">
+            <img src="https://mistralaichatupprodswe.blob.core.windows.net/chat-images/f8/14/e8/f814e8e0-b018-4b42-a827-28188f41e4e0/d7981328-b9a8-4476-bc3f-abee5b26d7bc/5c92fd38-6e7e-4a91-abd0-82e93e1f935c?sv=2025-01-05&spr=https&se=2026-07-17T08%3A36%3A17Z&skoid=c9baccad-3639-4379-a088-07b7e349293c&sktid=4fbc1168-2984-4d17-af19-ac5138c2378e&skt=2026-07-17T07%3A36%3A17Z&ske=2026-07-17T08%3A36%3A17Z&sks=b&skv=2025-01-05&sr=b&sp=r&sig=eg8JqACMGSDD8Ve%2FG2dpF6YZtGHLqioCKA8hOq52gdI%3D" alt="Logo DCI" class="logo">
+        </div>
+        <div class="title-container">
+            <h1 id="title">Générateur de Prompt Structuré</h1>
+            <p class="version">v1</p>
+        </div>
         <div class="language-selector">
             <label for="language" id="language-label">Langue:</label>
             <select id="language">
@@ -111,14 +117,16 @@
 
         <!-- Précisions -->
         <div class="section">
-            <h2 id="precisions-title">5. Précisions</h2>
+            <h2 id="precisions-title">5. Précisions (ton, style écrit de la réponse)</h2>
             <select id="precisions" multiple>
-                <option value="créatif / conventionnel">créatif / conventionnel</option>
-                <option value="professionnel / informel">professionnel / informel</option>
-                <option value="responsable marketing, direction, ensemble des salariés">responsable marketing, direction, ensemble des salariés</option>
-                <option value="experts / grand public">experts / grand public</option>
-                <option value="accessible à tous">accessible à tous</option>
-                <option value="cordial / neutre">cordial / neutre</option>
+                <option value="créatif">créatif</option>
+                <option value="conventionnel">conventionnel</option>
+                <option value="professionnel">professionnel</option>
+                <option value="informel">informel</option>
+                <option value="expert">expert</option>
+                <option value="cordial">cordial</option>
+                <option value="neutre">neutre</option>
+                <option value="grand public">grand public</option>
             </select>
         </div>
 
@@ -145,7 +153,7 @@
                 <option value="powerpoint">powerpoint</option>
                 <option value="word">word</option>
                 <option value="excel">excel</option>
-                <option value="text">text</option>
+                <option value="texte">texte</option>
                 <option value="onenote">onenote</option>
                 <option value="page html">page html</option>
             </select>
