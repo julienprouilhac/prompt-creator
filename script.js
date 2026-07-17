@@ -342,15 +342,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Ajoute les options traduites
         for (const [value, text] of Object.entries(options)) {
-            select.add(new Option(text, value));
+            const optionElement = document.createElement('option');
+            optionElement.value = value;
+            optionElement.textContent = text;
+            select.appendChild(optionElement);
         }
 
         // Rétablit les sélections
         selectedValues.forEach(value => {
-            if (Object.keys(options).includes(value)) {
-                const option = select.querySelector(`option[value="${value}"]`);
-                if (option) option.selected = true;
-            }
+            const option = select.querySelector(`option[value="${value}"]`);
+            if (option) option.selected = true;
         });
     }
 
