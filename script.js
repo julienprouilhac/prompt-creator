@@ -16,6 +16,7 @@ const translations = {
         generateBtn: "Générer le prompt",
         copyBtn: "Copier",
         roleOptions: {
+            "": "-- Sélectionner un rôle --",
             "chef(fe) de projet": "chef(fe) de projet",
             "conseiller opérationnel et technique": "conseiller opérationnel et technique",
             "acheteur": "acheteur",
@@ -26,6 +27,7 @@ const translations = {
             "expert en": "expert en"
         },
         contexteOptions: {
+            "": "-- Sélectionner un contexte --",
             "réunion": "réunion",
             "sourcing": "sourcing",
             "étude technique": "étude technique",
@@ -36,6 +38,7 @@ const translations = {
             "autre": "autre"
         },
         objectifOptions: {
+            "": "-- Sélectionner un objectif --",
             "rechercher": "rechercher",
             "créer": "créer",
             "clarifier": "clarifier",
@@ -48,6 +51,7 @@ const translations = {
             "autre": "autre"
         },
         tachesOptions: {
+            "": "-- Sélectionner des tâches --",
             "expliquer": "expliquer",
             "résumer": "résumer",
             "écrire": "écrire",
@@ -59,6 +63,7 @@ const translations = {
             "analyser": "analyser"
         },
         precisionsOptions: {
+            "": "-- Sélectionner des précisions --",
             "créatif": "créatif",
             "conventionnel": "conventionnel",
             "professionnel": "professionnel",
@@ -69,6 +74,7 @@ const translations = {
             "grand public": "grand public"
         },
         livrableOptions: {
+            "": "-- Sélectionner un livrable --",
             "tableau": "tableau",
             "liste": "liste",
             "mindmap": "mindmap",
@@ -80,6 +86,7 @@ const translations = {
             "interview": "interview"
         },
         formatOptions: {
+            "": "-- Sélectionner un format --",
             "powerpoint": "powerpoint",
             "word": "word",
             "excel": "excel",
@@ -104,6 +111,7 @@ const translations = {
         generateBtn: "Generate Prompt",
         copyBtn: "Copy",
         roleOptions: {
+            "": "-- Select a role --",
             "chef(fe) de projet": "project manager",
             "conseiller opérationnel et technique": "operational and technical advisor",
             "acheteur": "buyer",
@@ -114,6 +122,7 @@ const translations = {
             "expert en": "expert in"
         },
         contexteOptions: {
+            "": "-- Select a context --",
             "réunion": "meeting",
             "sourcing": "sourcing",
             "étude technique": "technical study",
@@ -124,6 +133,7 @@ const translations = {
             "autre": "other"
         },
         objectifOptions: {
+            "": "-- Select an objective --",
             "rechercher": "research",
             "créer": "create",
             "clarifier": "clarify",
@@ -136,6 +146,7 @@ const translations = {
             "autre": "other"
         },
         tachesOptions: {
+            "": "-- Select tasks --",
             "expliquer": "explain",
             "résumer": "summarize",
             "écrire": "write",
@@ -147,6 +158,7 @@ const translations = {
             "analyser": "analyze"
         },
         precisionsOptions: {
+            "": "-- Select precisions --",
             "créatif": "creative",
             "conventionnel": "conventional",
             "professionnel": "professional",
@@ -157,6 +169,7 @@ const translations = {
             "grand public": "general public"
         },
         livrableOptions: {
+            "": "-- Select a deliverable --",
             "tableau": "table",
             "liste": "list",
             "mindmap": "mindmap",
@@ -168,6 +181,7 @@ const translations = {
             "interview": "interview"
         },
         formatOptions: {
+            "": "-- Select a format --",
             "powerpoint": "PowerPoint",
             "word": "Word",
             "excel": "Excel",
@@ -192,6 +206,7 @@ const translations = {
         generateBtn: "إنشاء الطلب",
         copyBtn: "نسخ",
         roleOptions: {
+            "": "-- اختر دورًا --",
             "chef(fe) de projet": "مدير المشروع",
             "conseiller opérationnel et technique": "مستشار فني و تشغيلي",
             "acheteur": "مشتر",
@@ -202,6 +217,7 @@ const translations = {
             "expert en": "خبير في"
         },
         contexteOptions: {
+            "": "-- اختر سياقًا --",
             "réunion": "اجتماع",
             "sourcing": "التوريد",
             "étude technique": "دراسة فنية",
@@ -212,6 +228,7 @@ const translations = {
             "autre": "آخر"
         },
         objectifOptions: {
+            "": "-- اختر هدفًا --",
             "rechercher": "بحث",
             "créer": "إنشاء",
             "clarifier": "توضيح",
@@ -224,6 +241,7 @@ const translations = {
             "autre": "آخر"
         },
         tachesOptions: {
+            "": "-- اختر مهامًا --",
             "expliquer": "شرح",
             "résumer": "تلخيص",
             "écrire": "كتابة",
@@ -235,6 +253,7 @@ const translations = {
             "analyser": "تحليل"
         },
         precisionsOptions: {
+            "": "-- اختر توضيحات --",
             "créatif": "إبداعي",
             "conventionnel": "تقليدي",
             "professionnel": "مهني",
@@ -245,6 +264,7 @@ const translations = {
             "grand public": "عام"
         },
         livrableOptions: {
+            "": "-- اختر مخرجًا --",
             "tableau": "جدول",
             "liste": "قائمة",
             "mindmap": "خريطة ذهنية",
@@ -256,6 +276,7 @@ const translations = {
             "interview": "مقابلة"
         },
         formatOptions: {
+            "": "-- اختر تنسيقًا --",
             "powerpoint": "باوربوينت",
             "word": "وورد",
             "excel": "إكسيل",
@@ -318,15 +339,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const select = document.getElementById(selectId);
         const selectedValues = Array.from(select.selectedOptions).map(option => option.value);
         select.innerHTML = '';
-
-        // Ajoute l'option par défaut
-        if (selectId === 'role') {
-            select.add(new Option('-- Sélectionner un rôle --', ''));
-        } else if (selectId === 'contexte') {
-            select.add(new Option('-- Sélectionner un contexte --', ''));
-        } else if (selectId === 'objectif') {
-            select.add(new Option('-- Sélectionner un objectif --', ''));
-        }
 
         // Ajoute les options traduites
         for (const [value, text] of Object.entries(options)) {
@@ -440,6 +452,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const taches = Array.from(document.getElementById('taches').selectedOptions)
             .map(option => option.value)
+            .filter(value => value !== '') // Filtrer l'option vide
             .join(', ');
 
         const tachesCustomValue = tachesCustom.value.trim();
@@ -447,14 +460,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const precisions = Array.from(document.getElementById('precisions').selectedOptions)
             .map(option => option.value)
+            .filter(value => value !== '') // Filtrer l'option vide
             .join(', ');
 
         const livrable = Array.from(document.getElementById('livrable').selectedOptions)
             .map(option => option.value)
+            .filter(value => value !== '') // Filtrer l'option vide
             .join(', ');
 
         const format = Array.from(document.getElementById('format').selectedOptions)
             .map(option => option.value)
+            .filter(value => value !== '') // Filtrer l'option vide
             .join(', ');
 
         const objectifDetailsValue = objectifDetails.value.trim();
