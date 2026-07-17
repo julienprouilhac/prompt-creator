@@ -5,7 +5,7 @@ body {
     padding: 20px;
     background-color: #f4f4f9;
     color: #333;
-    direction: ltr; /* Par défaut, de gauche à droite */
+    direction: ltr;
 }
 
 .header {
@@ -13,12 +13,34 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.logo-container {
+    flex-shrink: 0;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+}
+
+.title-container {
+    flex-grow: 1;
+    text-align: center;
 }
 
 h1 {
-    text-align: left;
     color: #2c3e50;
     margin: 0;
+}
+
+.version {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #777;
+    text-align: center;
 }
 
 .language-selector {
@@ -104,7 +126,7 @@ button:hover {
     font-family: monospace;
     margin-bottom: 10px;
     white-space: pre-wrap;
-    direction: ltr; /* Force la direction de gauche à droite pour le prompt */
+    direction: ltr;
 }
 
 .button-group {
@@ -149,8 +171,21 @@ body[lang="ar"] .header {
     flex-direction: row-reverse;
 }
 
+body[lang="ar"] .logo-container {
+    order: 1;
+}
+
+body[lang="ar"] .title-container {
+    order: 2;
+    text-align: center;
+}
+
+body[lang="ar"] .language-selector {
+    order: 3;
+}
+
 body[lang="ar"] h1 {
-    text-align: right;
+    text-align: center;
 }
 
 body[lang="ar"] .section {
