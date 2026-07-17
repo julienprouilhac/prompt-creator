@@ -451,9 +451,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Supprimer les parenthèses après "résumer"
         objectif = objectif.replace(/\(.*\)/, '').trim();
 
+        // Récupérer les valeurs sélectionnées (pour les selects classiques)
         const taches = Array.from(document.getElementById('taches').selectedOptions)
             .map(option => option.value)
-            .filter(value => value !== '') // Filtrer l'option vide
+            .filter(value => value !== '')
             .join(', ');
 
         const tachesCustomValue = tachesCustom.value.trim();
@@ -461,22 +462,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const precisions = Array.from(document.getElementById('precisions').selectedOptions)
             .map(option => option.value)
-            .filter(value => value !== '') // Filtrer l'option vide
+            .filter(value => value !== '')
             .join(', ');
 
         const livrable = Array.from(document.getElementById('livrable').selectedOptions)
             .map(option => option.value)
-            .filter(value => value !== '') // Filtrer l'option vide
+            .filter(value => value !== '')
             .join(', ');
 
         const format = Array.from(document.getElementById('format').selectedOptions)
             .map(option => option.value)
-            .filter(value => value !== '') // Filtrer l'option vide
+            .filter(value => value !== '')
             .join(', ');
 
         const objectifDetailsValue = objectifDetails.value.trim();
 
-        // Construction du prompt sans ** et sans majuscules
+        // Construction du prompt
         let prompt = `tu es un(e) ${role}. `;
         prompt += `dans le cadre d'une ${contexte}, `;
         prompt += `ton objectif est de ${objectif}${objectifDetailsValue ? ` ${objectifDetailsValue}` : ''}. `;
