@@ -19,6 +19,7 @@ body {
 
 .logo-container {
     flex-shrink: 0;
+    margin-right: 20px;
 }
 
 .logo {
@@ -47,6 +48,8 @@ h1 {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-left: auto;
+    margin-right: 20px;
 }
 
 .language-selector label {
@@ -95,18 +98,6 @@ select {
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 1em;
-}
-
-select[multiple] {
-    height: auto;
-    padding: 8px;
-    overflow-y: auto;
-}
-
-.select-multiple {
-    height: auto;
-    max-height: 150px;
-    overflow-y: auto;
 }
 
 input[type="text"] {
@@ -206,6 +197,8 @@ body[lang="ar"] .header {
 
 body[lang="ar"] .logo-container {
     order: 1;
+    margin-right: 0;
+    margin-left: 20px;
 }
 
 body[lang="ar"] .title-container {
@@ -215,6 +208,8 @@ body[lang="ar"] .title-container {
 
 body[lang="ar"] .language-selector {
     order: 3;
+    margin-left: 0;
+    margin-right: 20px;
 }
 
 body[lang="ar"] h1 {
